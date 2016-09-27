@@ -1,5 +1,14 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  height: 100%;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+:root {
+  --primary-color: #2196F3;
+  --accent-color: #F0F;
+  --white-color: #FFF;
 }

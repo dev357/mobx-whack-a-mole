@@ -1,0 +1,45 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align:center;
+}
+
+.game > * {
+  margin: 0;
+}
+
+.game > h1 {
+  margin-top: 3vmin;
+  font-size: 10vmin;
+}
+
+.startButton {
+  background-color: var(--primary-color);
+  border-radius: 2vmin;
+  width: 66vmin;
+  margin: 0 auto 1rem;
+  cursor: pointer;
+}
+
+.startButton > p {
+  margin: 0;
+  font-size: 5vmin;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.score {
+  font-size: 10vmin;
+  font-weight: bold;
+}
+
+.table {
+  width: 70vmin;
+  height: 70vmin;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
