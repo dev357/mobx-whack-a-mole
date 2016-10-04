@@ -17,7 +17,8 @@
 .startButton {
   background-color: var(--primary-color);
   border-radius: 2vmin;
-  width: 66vmin;
+  width: 91vw;
+  max-width: 475px;
   margin: 0 auto 1rem;
   cursor: pointer;
 }
@@ -35,8 +36,10 @@
 }
 
 .table {
-  width: 70vmin;
-  height: 70vmin;
+  width: 95vw;
+  max-width: 500px;
+  height: 95vw;
+  max-height: 500px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
