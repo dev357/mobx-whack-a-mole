@@ -8,7 +8,7 @@ function WhackAMole({whackAMole}) {
   const startGame = () => whackAMole.startGame(10, 1);
 
   return <div className={styles.game}>
-    <h1 onClick={startGame}>Whack-A-Mole</h1>
+    <h1>Whack-A-Mole</h1>
     <div className={styles.startButton} onClick={startGame}>
       <TimeDisplay />
     </div>
