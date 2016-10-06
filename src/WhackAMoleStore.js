@@ -60,13 +60,7 @@ class WhackAMoleStore {
   }
 
   @bind @action addScore(name, score) {
-    const id = Fb.scores.push().key;
-    console.log({id});
-    Fb.scores.update({[id]: {name, score}});
-  }
-
-  @bind @action removeScore(key) {
-    Fb.scores.child(key).remove();
+    Fb.scores.push({name, score});
   }
 
   @bind @action startGame(length = 60, frequency = 3) {

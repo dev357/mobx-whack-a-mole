@@ -2,15 +2,16 @@ import React from 'react';
 import styles from './WhackAMole.css';
 import {observer} from 'mobx-react';
 
-import DevTools from 'mobx-react-devtools';
+import {Link} from 'react-router';
 import Mole from './Mole';
 
 function WhackAMole({whackAMole}) {
   const startGame = () => whackAMole.startGame(10, 1);
   const changeName = e => whackAMole.setName(e.target.value);
 
+  const renderMole = (mole, index) => <Mole key={index} mole={mole} />;
+
   return <div className={styles.game}>
-    <DevTools />
     <h1>Whack-A-Mole</h1>
     <div className={styles.startArea}>
       <input type="text" placeholder="name" onChange={changeName}/>
@@ -19,49 +20,24 @@ function WhackAMole({whackAMole}) {
       </div>
     </div>
     <div className={styles.table}>
-      {whackAMole.moles.map((mole, index) => <Mole key={index} mole={mole}/>)}
+      {whackAMole.moles.map(renderMole)}
     </div>
-    <ScoreDisplay />
-    <ScoreList />
+    <ScoreDisplay totalActive={whackAMole.totalActive}/>
   </div>
 }
 
 export const TimeDisplay = observer(({timeToGo, isRunning}) => (
   <p>{isRunning
-    ? 'Time left: ' + timeToGo
-    : 'START GAME'}
+    ? 'Time: ' + timeToGo
+    : 'START'}
   </p>
 ));
 
-export const ScoreDisplay = observer(["whackAMole"], ({whackAMole}) => (
-  <div className={styles.score} onClick={whackAMole.addScore.bind(null, 'test', 789)}>
-    SCORE: {whackAMole.totalActive}
+export const ScoreDisplay = observer(({totalActive}) => (
+  <div className={styles.score}>
+    <span>{totalActive} ms</span>
+    <Link to="/scoreboard" className={styles.scoreboard}>Scoreboard</Link>
   </div>
 ));
-
-export const ScoreList = observer(["whackAMole"], ({whackAMole}) => {
-  console.log('rendering...');
-  return (
-    <div>
-      <ul>
-        {whackAMole.sortedScores.map(score => {
-          return (
-            <ScoreListItem key={score.key} removeScore={whackAMole.removeScore}
-              name={score.name} score={score.score} index={score.key}
-            />
-          )
-        })}
-      </ul>
-    </div>
-  )
-});
-
-export const ScoreListItem = observer(({removeScore, score, name, index}) => {
-  return (
-    <li onClick={removeScore.bind(null, index)}>
-      {name} : {score}
-    </li>
-  )
-});
 
 export default observer(["whackAMole"], WhackAMole);
