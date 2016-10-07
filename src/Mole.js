@@ -11,9 +11,8 @@ function Mole({mole}) {
   );
   return (
     <div className={classnames} onClick={mole.onHit}>
-      {/* <p>Active: {mole.totalActiveTime}</p> */}
     </div>
   );
 }
 
-export default observer(["whackAMole"], Mole);
+export default observer(Mole);
