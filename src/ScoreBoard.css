@@ -8,3 +8,23 @@
 .scoreboard hr {
   width: 100%;
 }
+
+.score:hover > span {
+  display: inline;
+}
+
+.score > span {
+  display: none;
+  padding-left: 1rem;
+  cursor: pointer;
+  color: var(--accent-color);
+}
+
+.scoreboard a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.scoreboard a:hover {
+  color: var(--accent-color);
+}

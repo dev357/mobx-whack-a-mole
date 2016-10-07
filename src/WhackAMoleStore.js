@@ -4,7 +4,7 @@ import Mole from './MoleStore';
 
 class WhackAMoleStore {
   @observable timeToGo = 0;
-  @observable name = null;
+  @observable name = "";
   secondInterval = null;
   moleInterval = null;
   gameLength = 0;

@@ -28,8 +28,9 @@ function ScoreBoard({scoreBoard}) {
 
 export const ScoreListItem = observer(({removeScore, score, name, index}) => {
   return (
-    <li onClick={removeScore.bind(null, index)}>
+    <li className={styles.score}>
       {score} - {name}
+      <span onClick={removeScore.bind(null, index)}>x</span>
     </li>
   )
 });
